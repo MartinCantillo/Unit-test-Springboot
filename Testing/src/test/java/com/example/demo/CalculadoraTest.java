@@ -11,6 +11,7 @@ import org.junit.jupiter.api.*;
  *
  * @author marti
  */
+
 public class CalculadoraTest {
     
     @Test//para que lo reconozca como test Junit 
@@ -24,6 +25,32 @@ public class CalculadoraTest {
         //assert de Junit para comparar
         Assertions.assertEquals(esperado, obtenido);
         
+        
+    }
+    
+     @Test
+    public void testResta(){
+
+        var Calculadora =new Calculadora();
+        Assertions.assertEquals(50, Calculadora.restar(100.0, 50.0));
+        //
+        
+    }
+    
+     @Test
+    public void testMultiplicacion(){
+
+        var Calculadora =new Calculadora();
+        Assertions.assertEquals(10, Calculadora.multiplicar(2.0, 5.0));
+        //
+        
+    }
+      @Test
+    public void testDivicion(){
+
+        var Calculadora =new Calculadora();
+        Assertions.assertEquals(2, Calculadora.dividir(4.0, 2.0));
+        //
         
     }
 }
