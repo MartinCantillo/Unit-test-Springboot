@@ -4,59 +4,66 @@
  */
 package com.example.demo;
 
-
 import org.junit.jupiter.api.*;
 
 /**
  *
  * @author marti
  */
-
 public class CalculadoraTest {
-    
+
     Calculadora Calculadora;
-    
+
+      //inicializar el metodo calculadora en cada metodo es redundante para eso creo el objeto general y creo un metodo
+    //para que lo inicie antes de cada metodo para eso se le coloca la anotacion beforeeach
     @BeforeEach
-    public void init(){
-        Calculadora =new Calculadora();
+    public void init() {
+        Calculadora = new Calculadora();
         System.out.println("inicializando");
     }
+
     @Test//para que lo reconozca como test Junit 
-    public void testSuma(){
+    public void testSuma() {
         //Valor esperado
-        double esperado=25;
+        double esperado = 25;
         //valor obtenido
-        double obtenido=Calculadora.sumar(5.0, 20.0);
+        double obtenido = Calculadora.sumar(5.0, 20.0);
         //comparar esperado vs obtenido
         //assert de Junit para comparar
         Assertions.assertEquals(esperado, obtenido);
-        
-        
+
     }
-    
-     @Test
-    public void testResta(){
+
+    @Test
+    public void testResta() {
 
         Assertions.assertEquals(50, Calculadora.restar(100.0, 50.0));
         //
-        
+
     }
-    
-     @Test
-    public void testMultiplicacion(){
+
+    @Test
+    public void testMultiplicacion() {
 
         Assertions.assertEquals(10, Calculadora.multiplicar(2.0, 5.0));
         //
-        
+
     }
-      @Test
-    public void testDivicion(){
+
+    @Test
+    public void testDivicion() {
 
         Assertions.assertEquals(2, Calculadora.dividir(4.0, 2.0));
         //
-        
+
     }
+
+    //ahora para cerrar despues de cada test , esto es bueno para cuando se maneja con bd para limpiar tablas, cerrar 
+    //conexiones a bd, preparar la ejecucion del test sgt , 
     
-    //inicializar el metodo calculadora en cada metodo es redundante para eso creo el objeto general y creo un metodo
-    //para que lo inicie antes de cada metodo para eso se le coloca la anotacion beforeeach
+     @AfterEach
+    public void showTest() {
+        System.out.println("Finalizando Test");
+    }
+  
 }
