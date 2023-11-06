@@ -13,6 +13,12 @@ import org.junit.jupiter.api.*;
 public class CalculadoraTest {
 
     Calculadora Calculadora;
+    
+    //inicialzador global (Cuando la clase arranca se ejecuta el test ese primero), ademas tiene que ser static porque es de la clase
+    @BeforeAll
+    public static void startup(){
+        System.out.println("Inicializacion global---------");
+    }
 
       //inicializar el metodo calculadora en cada metodo es redundante para eso creo el objeto general y creo un metodo
     //para que lo inicie antes de cada metodo para eso se le coloca la anotacion beforeeach
@@ -31,6 +37,7 @@ public class CalculadoraTest {
         //comparar esperado vs obtenido
         //assert de Junit para comparar
         Assertions.assertEquals(esperado, obtenido);
+        System.out.println("testeando suma");
 
     }
 
@@ -38,7 +45,7 @@ public class CalculadoraTest {
     public void testResta() {
 
         Assertions.assertEquals(50, Calculadora.restar(100.0, 50.0));
-        //
+        System.out.println("testeando resta");
 
     }
 
@@ -46,7 +53,7 @@ public class CalculadoraTest {
     public void testMultiplicacion() {
 
         Assertions.assertEquals(10, Calculadora.multiplicar(2.0, 5.0));
-        //
+        System.out.println("testeando testMultiplicacion");
 
     }
 
@@ -54,7 +61,7 @@ public class CalculadoraTest {
     public void testDivicion() {
 
         Assertions.assertEquals(2, Calculadora.dividir(4.0, 2.0));
-        //
+        System.out.println("testDivicion");
 
     }
 
