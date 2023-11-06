@@ -73,4 +73,8 @@ public class CalculadoraTest {
         System.out.println("Finalizando Test");
     }
   
+    @AfterAll //para finalizaciond de la clase 
+    public static void destroy(){
+        System.out.println("finalizacion global---------");
+    }
 }
