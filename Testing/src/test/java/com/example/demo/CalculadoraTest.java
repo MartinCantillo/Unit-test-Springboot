@@ -42,6 +42,7 @@ public class CalculadoraTest {
     }
 
     @Test
+    @DisplayName("TestResta Display") //para cambiarle el nombre del test
     public void testResta() {
 
         Assertions.assertEquals(50, Calculadora.restar(100.0, 50.0));
@@ -50,6 +51,7 @@ public class CalculadoraTest {
     }
 
     @Test
+    
     public void testMultiplicacion() {
 
         Assertions.assertEquals(10, Calculadora.multiplicar(2.0, 5.0));
